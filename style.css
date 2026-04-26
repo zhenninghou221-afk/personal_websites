@@ -100,6 +100,11 @@ h2 {
     color: #888;
 }
 
+.video-player {
+    width: 100%;
+    display: block;
+}
+
 /* Article Styles */
 article {
     margin-bottom: 30px;
