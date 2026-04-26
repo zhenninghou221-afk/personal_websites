@@ -74,6 +74,46 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Avatar and Intro Text Styles */
+.avatar-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #00f0ff;
+    box-shadow: 0 0 20px #00f0ff, inset 0 0 10px rgba(0, 240, 255, 0.5);
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 8px #00f0ff;
+    overflow: hidden;
+    border-right: .15em solid #00f0ff;
+    white-space: nowrap;
+    margin: 20px auto;
+    width: fit-content;
+    letter-spacing: .15em;
+    animation:
+        typing 2s steps(7, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00f0ff; }
+}
+
+
 /* Placeholder Styles */
 .placeholder-image {
     max-width: 100%;
@@ -101,8 +141,9 @@ h2 {
 }
 
 .video-player {
-    width: 100%;
+    width: 80%;
     display: block;
+    margin: 0 auto;
 }
 
 /* Article Styles */
