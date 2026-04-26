@@ -1,0 +1,155 @@
+/* General Body Styles */
+body {
+    background-color: #0a0a1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Particle Canvas Styling */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Header and Navigation */
+header {
+    padding: 20px 40px;
+    background: rgba(10, 10, 26, 0.8);
+    border-bottom: 1px solid #00f0ff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    display: inline-block;
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+header nav a:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff;
+}
+
+/* Main Content */
+main {
+    padding: 120px 40px 40px;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(15, 15, 35, 0.7);
+    border: 1px solid #00f0ff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+h2 {
+    color: #00f0ff;
+    border-bottom: 2px solid #00f0ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Placeholder Styles */
+.placeholder-image {
+    max-width: 100%;
+    height: auto;
+    background-color: #333;
+    border: 2px dashed #555;
+    display: block;
+    margin: 20px 0;
+}
+
+.video-placeholder {
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #333;
+    border: 2px dashed #555;
+    position: relative;
+}
+
+.video-placeholder p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #888;
+}
+
+/* Article Styles */
+article {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00f0ff;
+}
+
+article:last-child {
+    border-bottom: none;
+}
+
+article h3 {
+    color: #ffffff;
+}
+
+article a {
+    color: #00f0ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    background: rgba(25, 25, 55, 0.8);
+    border: 1px solid #00f0ff;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.5);
+}
+
+.portfolio-item h3 {
+    margin-top: 10px;
+    color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #00f0ff;
+}
