@@ -135,7 +135,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 您的名字. 保留所有权利.</p>
+        <p id="copyright">&copy; 2026 您的名字. 保留所有权利.</p>
     </footer>
+    <script>
+        document.getElementById('copyright').innerHTML = `&copy; ${new Date().getFullYear()} 您的名字. 保留所有权利.`;
+    </script>
 </body>
 </html>
