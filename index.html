@@ -13,15 +13,7 @@
 
     <div id="main-content">
 
-        <header>
 
-            <nav>
-                <a href="#intro">个人介绍</a>
-                <a href="#video">个人视频</a>
-                <a href="#articles">文章</a>
-                <a href="#portfolio">作品展示</a>
-            </nav>
-        </header>
 
         <main>
             <section id="intro">
@@ -31,9 +23,9 @@
             </section>
 
             <section id="video">
-                <h2>个人视频</h2>
-                <video controls class="video-player">
-                    <source src="videos/33.mp4" type="video/mp4">
+                <h2>法拉利</h2>
+                <video controls class="video-player" id="autoplay-video">
+                    <source src="videos/1332.mp4" type="video/mp4">
                     您的浏览器不支持视频播放。
                 </video>
             </section>
@@ -69,22 +61,31 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('autoplay-video');
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
+                    if (entry.target.id === 'autoplay-video') {
+                        if (!entry.isIntersecting) {
+                            video.pause();
+                        }
                     } else {
-                        entry.target.classList.remove('is-visible');
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        } else {
+                            entry.target.classList.remove('is-visible');
+                        }
                     }
                 });
             }, {
-                threshold: 0.5 // Trigger when 50% of the section is visible
+                threshold: 0.5 // Trigger when 50% of the element is visible
             });
 
             const targets = document.querySelectorAll('section');
             targets.forEach(target => {
                 observer.observe(target);
             });
+            observer.observe(video);
         });
     </script>
 
