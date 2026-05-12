@@ -3,78 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人品牌官网</title>
+    <title>侯振宁的网站</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="particle-canvas"></canvas>
+    <section id="welcome-screen">
+        <video autoplay muted loop id="hero-video">
+            <source src="videos/33.mp4" type="video/mp4">
+        </video>
+        <h1 class="welcome-text">欢迎来到我的WEB</h1>
+    </section>
 
-    <header>
-        <h1>个人品牌官网</h1>
-        <nav>
-            <a href="#intro">个人介绍</a>
-            <a href="#video">个人视频</a>
-            <a href="#articles">文章</a>
-            <a href="#portfolio">作品展示</a>
-        </nav>
-    </header>
+    <div id="main-content">
 
-    <main>
-        <section id="intro">
-            <h2>个人介绍</h2>
-                        <img src="images/avatar.jpg" alt="个人头像" class="avatar-image">
-            <p class="intro-text">欢迎来到我的WEB</p>
-        </section>
+        <header>
+            <h1>侯振宁的网站</h1>
+            <nav>
+                <a href="#intro">个人介绍</a>
+                <a href="#video">个人视频</a>
+                <a href="#articles">文章</a>
+                <a href="#portfolio">作品展示</a>
+            </nav>
+        </header>
 
-        <section id="video">
-            <h2>个人视频</h2>
-                        <video controls class="video-player">
-                <source src="videos/12233.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-        </section>
+        <main>
+            <section id="intro">
+                <h2>个人介绍</h2>
+                <img src="images/avatar.jpg" alt="个人头像" class="avatar-image">
+                <p class="intro-text">欢迎来到我的WEB</p>
+            </section>
 
-        <section id="articles">
-            <h2>文章</h2>
-                                    <article>
-                <h3>巴黎</h3>
-                                <img src="page/221.jpg" alt="巴黎文章图片" class="article-image">
-                <p>关于在巴黎的记录与心情分享。点击阅读更多，进入巴黎的回忆。</p>
-                <a href="page/paris.html">阅读更多</a>
-            </article>
-            <article>
-                <h3>我的青岛之旅</h3>
-                <img src="images/112.jpg" alt="青岛之旅图片" class="article-image">
-                <a href="page/qingdao-trip.html">阅读更多</a>
-            </article>
-        </section>
+            <section id="video">
+                <h2>个人视频</h2>
+                <video controls class="video-player">
+                    <source src="videos/33.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </section>
 
-        <section id="portfolio">
-            <h2>作品展示</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="placeholder-portfolio-1.jpg" alt="作品一占位图" class="placeholder-image">
-                    <h3>作品一</h3>
+            <section id="articles">
+                <h2>文章</h2>
+                <article>
+                    <h3>巴黎</h3>
+                    <img src="page/221.jpg" alt="巴黎文章图片" class="article-image">
+                    <p>关于在巴黎的记录与心情分享。点击阅读更多，进入巴黎的回忆。</p>
+                    <a href="page/paris.html">阅读更多</a>
+                </article>
+                <article>
+                    <h3>我的青岛之旅</h3>
+                    <img src="images/112.jpg" alt="青岛之旅图片" class="article-image">
+                    <a href="page/qingdao-trip.html">阅读更多</a>
+                </article>
+            </section>
+
+            <section id="portfolio">
+                <h2>作品展示</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="placeholder-portfolio-1.jpg" alt="作品一占位图" class="placeholder-image">
+                        <h3>作品一</h3>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="placeholder-portfolio-2.jpg" alt="作品二占位图" class="placeholder-image">
+                        <h3>作品二</h3>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="placeholder-portfolio-3.jpg" alt="作品三占位图" class="placeholder-image">
+                        <h3>作品三</h3>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="placeholder-portfolio-2.jpg" alt="作品二占位图" class="placeholder-image">
-                    <h3>作品二</h3>
-                </div>
-                <div class="portfolio-item">
-                    <img src="placeholder-portfolio-3.jpg" alt="作品三占位图" class="placeholder-image">
-                    <h3>作品三</h3>
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <footer>
-        <p id="copyright">&copy; 2026 您的名字. 保留所有权利.</p>
-    </footer>
+        <footer>
+            <p id="copyright">&copy; 2026 您的名字. 保留所有权利.</p>
+        </footer>
+    </div>
 
-    <script src="script.js"></script>
+
+
     <script>
         document.getElementById('copyright').innerHTML = `&copy; ${new Date().getFullYear()} 您的名字. 保留所有权利.`;
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const targets = document.querySelectorAll('header, main > section');
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        });
     </script>
 </body>
 </html>
