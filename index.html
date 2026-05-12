@@ -14,7 +14,7 @@
     <div id="main-content">
 
         <header>
-            <h1>侯振宁的网站</h1>
+
             <nav>
                 <a href="#intro">个人介绍</a>
                 <a href="#video">个人视频</a>
@@ -38,37 +38,22 @@
                 </video>
             </section>
 
-            <section id="articles">
-                <h2>文章</h2>
-                <article>
-                    <h3>巴黎</h3>
-                    <img src="page/221.jpg" alt="巴黎文章图片" class="article-image">
-                    <p>关于在巴黎的记录与心情分享。点击阅读更多，进入巴黎的回忆。</p>
-                    <a href="page/paris.html">阅读更多</a>
-                </article>
-                <article>
-                    <h3>我的青岛之旅</h3>
-                    <img src="images/112.jpg" alt="青岛之旅图片" class="article-image">
-                    <a href="page/qingdao-trip.html">阅读更多</a>
-                </article>
+            <section id="article-paris" class="article-section">
+                <div class="article-content">
+                    <h3>911 GT2 RS</h3>
+
+                    <a href="page/paris.html" class="article-button">阅读更多</a>
+                </div>
+            </section>
+            <section id="article-qingdao" class="article-section">
+                <div class="article-content">
+                    <h3>911 Carrera 4 GTS</h3>
+                    <a href="page/qingdao-trip.html" class="article-button">阅读更多</a>
+                </div>
             </section>
 
-            <section id="portfolio">
-                <h2>作品展示</h2>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <img src="placeholder-portfolio-1.jpg" alt="作品一占位图" class="placeholder-image">
-                        <h3>作品一</h3>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="placeholder-portfolio-2.jpg" alt="作品二占位图" class="placeholder-image">
-                        <h3>作品二</h3>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="placeholder-portfolio-3.jpg" alt="作品三占位图" class="placeholder-image">
-                        <h3>作品三</h3>
-                    </div>
-                </div>
+            <section id="article-9112" class="article-section">
+                <!-- This section is for the full-screen image -->
             </section>
         </main>
 
@@ -88,18 +73,20 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                    } else {
+                        entry.target.classList.remove('is-visible');
                     }
                 });
             }, {
-                threshold: 0.1
+                threshold: 0.5 // Trigger when 50% of the section is visible
             });
 
-            const targets = document.querySelectorAll('header, main > section');
+            const targets = document.querySelectorAll('section');
             targets.forEach(target => {
                 observer.observe(target);
             });
         });
     </script>
+
 </body>
 </html>
