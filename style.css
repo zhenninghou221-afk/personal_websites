@@ -25,6 +25,15 @@ body {
     background-color: #000; /* Fallback color */
 }
 
+/* Article Page Specific Backgrounds */
+.paris-page {
+    background-image: url('page/ferrari-f80.jpg');
+}
+
+.qingdao-page {
+    background-image: url('page/ctr-ferrari-458.jpg');
+}
+
 /* Welcome Screen Styles */
 #welcome-screen {
     height: 100vh;
@@ -125,7 +134,6 @@ section {
     box-sizing: border-box;
     padding: 60px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -202,12 +210,73 @@ h2 {
 }
 
 .video-player {
-    width: 60%;
+    width: 100%;
     display: block;
+}
+
+.video-container {
+    position: relative;
+    width: 60%;
     margin: 0 auto;
 }
 
+.video-control-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #fff;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.video-control-button::before {
+    content: '\1F507'; /* Muted speaker icon */
+}
+
+.video-control-button.is-unmuted::before {
+    content: '\1F50A'; /* Speaker with sound waves icon */
+}
+
 /* Article Styles */
+.article-content {
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    /* Adding a strong shadow to make text readable on any background */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.article-content h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.article-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.article-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.article-button:hover {
+    background-color: #fff;
+    color: #000;
+}
 .article-section {
     background-size: cover;
     background-position: center;
@@ -215,15 +284,15 @@ h2 {
 }
 
 #article-paris {
-    background-image: url('page/911.jpg');
+    background-image: url('page/ferrari-f80.jpg');
 }
 
 #article-qingdao {
-    background-image: url('page/9111.jpg');
+    background-image: url('page/ctr-ferrari-458.jpg');
 }
 
 #article-9112 {
-    background-image: url('page/9112.jpg');
+    background-image: url('page/ferrari-daytona-sp3.jpg');
 }
 
 /* Footer */

@@ -24,22 +24,27 @@
 
             <section id="video">
                 <h2>法拉利</h2>
-                <video controls class="video-player" id="autoplay-video">
-                    <source src="videos/1332.mp4" type="video/mp4">
-                    您的浏览器不支持视频播放。
-                </video>
+                <div class="video-container">
+                    <video controls muted class="video-player" id="autoplay-video">
+                        <source src="videos/011.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                    <button id="mute-button" class="video-control-button">
+                        <!-- Icon will be added via CSS -->
+                    </button>
+                </div>
             </section>
 
             <section id="article-paris" class="article-section">
                 <div class="article-content">
-                    <h3>911 GT2 RS</h3>
+                    <h3>ferrari-f80</h3>
 
                     <a href="page/paris.html" class="article-button">阅读更多</a>
                 </div>
             </section>
             <section id="article-qingdao" class="article-section">
                 <div class="article-content">
-                    <h3>911 Carrera 4 GTS</h3>
+                    <h3>ctr-ferrari-458</h3>
                     <a href="page/qingdao-trip.html" class="article-button">阅读更多</a>
                 </div>
             </section>
@@ -62,11 +67,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('autoplay-video');
+            const muteButton = document.getElementById('mute-button');
+
+            muteButton.addEventListener('click', () => {
+                video.muted = !video.muted;
+                muteButton.classList.toggle('is-unmuted');
+            });
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.target.id === 'autoplay-video') {
-                        if (!entry.isIntersecting) {
+                        if (entry.isIntersecting) {
+                            video.play();
+                        } else {
                             video.pause();
                         }
                     } else {
